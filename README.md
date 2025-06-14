@@ -1,27 +1,34 @@
 curl “订阅地址url -o conf/config.yaml
 
 # 启动
+```sh
 nohup ./mihomo -d conf > mihomo.log 2>&1 &
-
+```
 
 # 设置代理
 --需要设置自己相应的地址和端口--
-‘'sh''全局
+
+```sh
 export HTTP_PROXY="http://127.0.0.1:7897" 
 export HTTPS_PROXY="http://127.0.0.1:7897"
+```
 
-’‘python代码中’‘
+python代码中
+```python
 import os
 os.environ["HTTP_PROXY"] = "http://127.0.0.1:7897"
 os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7897"
-
+```
 # 检测是否启动成功
+```sh
 python -c "from huggingface_hub import hf_hub_download; hf_hub_download(repo_id='bert-base-uncased', filename='config.json')"
-
+```
 # Linux 系统 开机自启动
+```sh
 sudo vim /etc/init.d/mihomo
+```
 写入以下内容（按需修改 ExecStart 路径和参数）：
-‘’‘sh
+```sh
 #!/bin/bash
 ### BEGIN INIT INFO
 # Provides:          mihomo
@@ -69,11 +76,10 @@ case "$1" in
         ;;
 esac
 exit 0
-'''
-
+```
+```
 sudo chmod +x /etc/init.d/mihomo
 sudo update-rc.d mihomo defaults  # Debian/Ubuntu
-# 或
 sudo chkconfig --add mihomo       # CentOS 6/RedHat
 
 命令	作用
@@ -81,3 +87,4 @@ sudo service mihomo start	启动服务
 sudo service mihomo stop	停止服务
 sudo service mihomo restart	重启服务
 sudo service mihomo status	查看状态
+```
