@@ -95,4 +95,10 @@ sudo service mihomo start	启动服务
 sudo service mihomo stop	停止服务
 sudo service mihomo restart	重启服务
 sudo service mihomo status	查看状态
+
+添加开机自启动并添加代理
+echo 'sudo service mihomo start' >> ~/.bashrc
+echo 'export HTTP_PROXY="http://127.0.0.1:7897"' >> ~/.bashrc
+echo 'export HTTPS_PROXY="http://127.0.0.1:7897"' >> ~/.bashrc
+source ~/.bashrc  # 立即生效
 ```
