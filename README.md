@@ -25,6 +25,12 @@ os.environ["HTTPS_PROXY"] = "http://127.0.0.1:7897"
 ```sh
 python -c "from huggingface_hub import hf_hub_download; hf_hub_download(repo_id='bert-base-uncased', filename='config.json')"
 ```
+```sh
+curl https:/google.com
+```
+可以返回301等即为成功，检测前须确认是否开启代理\
+` curl: (35) OpenSSL SSL_connect: Connection reset by peer in connection to google.com:443 `\
+上面这种就是没有开启代理
 # Linux 系统 开机自启动
 ```sh
 sudo vim /etc/init.d/mihomo
