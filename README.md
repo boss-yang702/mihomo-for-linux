@@ -1,6 +1,6 @@
 # 添加订阅地址到配置文件中
 ```sh
-curl “订阅地址url -o conf/config.yaml
+curl “订阅地址url“ -o conf/config.yaml
 ```
 # 启动
 ```sh
